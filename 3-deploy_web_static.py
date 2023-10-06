@@ -1,6 +1,8 @@
 #!/usr/bin/python3
-"""Creates and distributes an archive to your web servers,
-   using the function deploy: """
+"""Fabric script (based on the file 2-do_deploy_web_static.py)
+that creates and distributes an archive to
+web servers, using the function deploy
+"""
 
 
 from fabric.api import *
@@ -8,7 +10,7 @@ from datetime import datetime
 from os.path import exists
 
 
-env.hosts = ['54.162.35.19', '54.167.61.201']
+env.hosts = ['54.165.106.79', '100.25.109.126']
 
 
 def do_pack():
@@ -25,7 +27,7 @@ def do_pack():
 
 
 def do_deploy(archive_path):
-    """Distributes an archive to my web servers"""
+    """Distributes an archive to web servers"""
     if exists(archive_path) is False:
         return False
     filename = archive_path.split('/')[-1]
