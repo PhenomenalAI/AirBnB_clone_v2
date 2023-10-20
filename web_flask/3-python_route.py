@@ -25,7 +25,7 @@ def displays_str():
     return "HBNB"
 
 
-@app.route("/c/<text>", strict_slahes=False)
+@app.route("/c/<text>", strict_slashes=False)
 def val_text(text):
     """Displays 'C' followed by value of <text>"""
     text = text.replace("_", " ")
@@ -33,11 +33,11 @@ def val_text(text):
 
 
 @app.route("/python/<text>", strict_slashes=False)
-def displays_py(text = "is cool"):
+def displays_py(text="is cool"):
     """Displays 'Python' followed by value of text"""
     text = text.replace("_", " ")
     return "Python {}".format(text)
 
 
 __name__ == "__main__":
-        app.run(host = "0.0.0.0", port = 5000)
+    app.run(host="0.0.0.0", port=5000)
