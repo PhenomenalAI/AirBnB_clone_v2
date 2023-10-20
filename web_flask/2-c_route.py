@@ -25,7 +25,7 @@ def displays_str():
     return "HBNB"
 
 
-@app.route("/c/<text>", strict_slahes=False)
+@app.route("/c/<text>", strict_slashes=False)
 def val_text(text):
     """Displays 'C' followed by value of <text>"""
     text = text.replace("_", " ")
