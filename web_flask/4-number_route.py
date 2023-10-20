@@ -40,7 +40,7 @@ def displays_py(text="is cool"):
     return "Python {}".format(text)
 
 
-@app.route("/number/<n>", strict_slashes=False)
+@app.route("/number/<int:n>", strict_slashes=False)
 def displays_int(n):
     """Displays 'n is anumber' if n is an integer"""
     return "{} is a number".format(n)
