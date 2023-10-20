@@ -5,13 +5,19 @@ starts a Flask web application.
 The application listens on 0.0.0.0, port 5000.
 Routes:
     /: Displays 'Hello HBNB!'
+    /hbnb: Displays 'HBNB'.
+    /c/<text>: Displays 'C' followed by the value of <text>.
+    /python/(<text>): Displays 'Python' followed by the value of <text>.
+    /number/<n>: Displays 'n is a number' only if <n> is an integer.
+    /number_template/<n>: Displays an HTML page only if <n> is an integer.
+        - Displays the value of <n> in the body.
+    /number_odd_or_even/<n>: Displays an HTML page only if <n> is an integer.
+        - States whether <n> is even or odd in the body.
 """
 
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
-app.jinja_env.trim_blocks = True
-app.jinja_env.lstrip_blocks = True
 
 
 # Defines a route for the root URL ("/") and set strict_slashes to False
@@ -53,11 +59,10 @@ def displays_html(n):
     return render_template("5-number.html", n=n)
 
 
-@app.route("/number_odd_or_even/<int:n>", strict_slashes=False)
-def odd_or_even(n):
-    """Displays an HTML page only if <n> is an integer.
-
-    States whether <n> is odd or even in the body.
+@app.route('/number_odd_or_even/<int:n>', strict_slashes=False)
+def even_odd(n):
+    """
+    function to display even or odd number
     """
     return render_template("6-number_odd_or_even.html", n=n)
 
