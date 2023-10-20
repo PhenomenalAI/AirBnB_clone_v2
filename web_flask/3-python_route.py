@@ -32,6 +32,7 @@ def val_text(text):
     return "C {}".format(text)
 
 
+@app.route("/python", strict_slashes=False)
 @app.route("/python/<text>", strict_slashes=False)
 def displays_py(text="is cool"):
     """Displays 'Python' followed by value of text"""
